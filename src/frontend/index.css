@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   MSME Desk India — Design Tokens (OKLCH, raw L C H values)
+   Brand: Saffron/Orange primary, Deep Navy sidebar
+   ============================================================ */
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans[wght].woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque[opsz,wght].woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Background & Foreground */
+    --background: 0.98 0.003 95;
+    --foreground: 0.18 0.02 250;
+
+    /* Card */
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.02 250;
+
+    /* Popover */
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.02 250;
+
+    /* Primary — Saffron/Orange */
+    --primary: 0.65 0.18 44;
+    --primary-foreground: 1 0 0;
+
+    /* Secondary — Soft Orange Tint */
+    --secondary: 0.95 0.03 55;
+    --secondary-foreground: 0.35 0.08 44;
+
+    /* Muted */
+    --muted: 0.96 0.005 95;
+    --muted-foreground: 0.52 0.02 250;
+
+    /* Accent — Warm Gold */
+    --accent: 0.93 0.06 55;
+    --accent-foreground: 0.4 0.1 44;
+
+    /* Destructive */
+    --destructive: 0.58 0.22 27;
+    --destructive-foreground: 1 0 0;
+
+    /* Success */
+    --success: 0.62 0.17 145;
+    --success-foreground: 1 0 0;
+
+    /* Warning */
+    --warning: 0.78 0.18 80;
+    --warning-foreground: 0.2 0.05 60;
+
+    /* Border / Input / Ring */
+    --border: 0.9 0.008 95;
+    --input: 0.9 0.008 95;
+    --ring: 0.65 0.18 44;
+
+    /* Charts */
+    --chart-1: 0.65 0.18 44;
+    --chart-2: 0.55 0.15 250;
+    --chart-3: 0.62 0.17 145;
+    --chart-4: 0.75 0.18 80;
+    --chart-5: 0.7 0.2 27;
+
+    /* Sidebar — Deep Navy */
+    --sidebar: 0.18 0.035 250;
+    --sidebar-foreground: 0.92 0.01 250;
+    --sidebar-primary: 0.65 0.18 44;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.25 0.04 250;
+    --sidebar-accent-foreground: 0.95 0.01 250;
+    --sidebar-border: 0.28 0.03 250;
+    --sidebar-ring: 0.65 0.18 44;
+
+    /* Brand custom tokens */
+    --brand-navy: 0.18 0.035 250;
+    --brand-saffron: 0.65 0.18 44;
+    --brand-saffron-light: 0.93 0.06 55;
+    --brand-gold: 0.78 0.18 80;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-feature-settings: "ss01";
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(0.82 0.01 250);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.65 0.02 250);
+}
+
+/* Print styles for document generation */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .print-document {
+    display: block !important;
+  }
+  body {
+    background: white;
+    color: black;
+  }
+}
+
+/* Status badge colors */
+.badge-pending {
+  background: oklch(0.96 0.1 80);
+  color: oklch(0.4 0.12 75);
+}
+.badge-active {
+  background: oklch(0.93 0.07 250);
+  color: oklch(0.35 0.12 250);
+}
+.badge-completed {
+  background: oklch(0.93 0.08 145);
+  color: oklch(0.4 0.12 145);
+}
+.badge-overdue {
+  background: oklch(0.95 0.08 27);
+  color: oklch(0.55 0.2 27);
+}
+
+/* Sidebar transition */
+.sidebar-transition {
+  transition: width 0.25s ease, transform 0.25s ease;
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.card-hover:hover {
+  box-shadow: 0 8px 24px oklch(0.65 0.18 44 / 0.12);
+  transform: translateY(-1px);
+}
+
+/* Subtle success tint for form notices */
+.bg-success\/8 {
+  background-color: oklch(0.62 0.17 145 / 0.08);
+}
+
+/* Stat card positioning */
+.stat-card-relative {
+  position: relative;
+}
